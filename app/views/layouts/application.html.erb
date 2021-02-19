@@ -8,6 +8,15 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
+    <%= javascript_pack_tag 'entry' %>
+    <script>
+      $(function() {
+        // always pass csrf tokens on ajax calls
+        $.ajaxSetup({
+          headers: { 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content') }
+        });
+      });
+    </script>
   </head>
 
   <body>
