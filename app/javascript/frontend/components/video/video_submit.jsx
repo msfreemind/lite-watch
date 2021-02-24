@@ -57,8 +57,15 @@ class VideoForm extends React.Component {
         <input onChange={this.handleInput} placeholder="Title" type="text" name="title" value={this.state.title}/>
 
         <br/>
-
-        <input onChange={this.handleInput} placeholder="Description" type="text" name="description" value={this.state.description}/>
+        
+        <textarea 
+          onChange={this.handleInput} 
+          placeholder="Description" 
+          name="description" 
+          cols="30" 
+          rows="10" 
+          value={this.state.description}
+        />
 
         <br/>
 
