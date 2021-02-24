@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createVideo: bench => dispatch(createVideo(bench))
+  createVideo: video => dispatch(createVideo(video))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoSubmit);
