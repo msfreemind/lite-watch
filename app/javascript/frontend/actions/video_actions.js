@@ -34,3 +34,9 @@ export const createVideo = video => dispatch => {
     video => dispatch(receiveVideo(video))
   );
 };
+
+export const updateVideo = (videoId, video) => dispatch => {
+  return APIUtil.patchVideo(videoId, video).then(
+    video => dispatch(receiveVideo(video))
+  );
+};

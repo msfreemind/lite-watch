@@ -4,7 +4,8 @@ import GreetingContainer from './greeting/greeting_container.jsx';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import SearchContainer from './search/search_container';
-import VideoFormContainer from './video/video_form_container';
+import VideoSubmitContainer from './video/video_submit_container';
+import VideoEditContainer from './video/video_edit_container';
 import VideoShowContainer from './video/video_show_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
 
@@ -22,7 +23,8 @@ const App = () => {
       <Route path="/feed" component={SearchContainer}/>
 
       <Switch>
-        <ProtectedRoute exact path="/videos/new" component={VideoFormContainer} />
+        <ProtectedRoute path="/videos/new" component={VideoSubmitContainer} />
+        <ProtectedRoute path="/videos/edit/:videoId" component={VideoEditContainer} />
         <Route path="/videos/:videoId" component={VideoShowContainer} />        
       </Switch>
     </div>  

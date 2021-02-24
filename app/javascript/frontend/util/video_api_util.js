@@ -22,3 +22,11 @@ export const postVideo = formData => (
     processData: false
   })
 );
+
+export const patchVideo = (videoId, video) => (
+  $.ajax({
+    method: 'PATCH',
+    url: `/api/videos/${videoId}`,
+    data: { video }
+  })
+);
