@@ -1,11 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class Greeting extends React.Component {
   constructor(props) {
     super(props);
 
     this.loggedIn = this.loggedIn.bind(this);
+    this.uploadVideo = this.uploadVideo.bind(this);
+  }
+
+  uploadVideo() {
+    this.props.history.push("/videos/new");
   }
 
   loggedIn() {
@@ -19,6 +24,7 @@ class Greeting extends React.Component {
       return (
         <div>
           <h1>Welcome, {currentUser.username}!</h1>
+          <button onClick={this.uploadVideo}>Upload Video</button>
           <button onClick={this.props.logout}>Log Out</button>
         </div>
       );
@@ -33,4 +39,4 @@ class Greeting extends React.Component {
   }
 }
 
-export default Greeting;
+export default withRouter(Greeting);
