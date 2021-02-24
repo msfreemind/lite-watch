@@ -16,10 +16,7 @@ class FilterForm extends React.Component {
   render() {
     return (
       <div>        
-        <label>
-          Title: 
-          <input onChange={this.handleInput} type="text" name="title" value={this.state.title}/>
-        </label>
+        <input onChange={this.handleInput} placeholder="Search Videos..." type="text" name="title" value={this.state.title}/>
       </div>       
     ); 
   }

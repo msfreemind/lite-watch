@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import GreetingContainer from './greeting/greeting_container.jsx';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
@@ -20,9 +20,11 @@ const App = () => {
       <AuthRoute path="/signup" component={SignupFormContainer}/>
 
       <Route path="/feed" component={SearchContainer}/>
-      <Route path="/videos/show/:videoId" component={VideoShowContainer} />
 
-      <ProtectedRoute path="/videos/new" component={VideoFormContainer} />
+      <Switch>
+        <ProtectedRoute exact path="/videos/new" component={VideoFormContainer} />
+        <Route path="/videos/:videoId" component={VideoShowContainer} />        
+      </Switch>
     </div>  
   );
 }

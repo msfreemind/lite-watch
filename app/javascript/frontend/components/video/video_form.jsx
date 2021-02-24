@@ -44,7 +44,7 @@ class VideoForm extends React.Component {
       formData.append('video[video_data]', this.state.videoFile);     
 
       this.props.createVideo(formData).then(
-        () => this.props.history.push("/")
+        () => this.props.history.push("/feed")
       ); 
     } else {
       // Handle error
