@@ -6,6 +6,13 @@ export const getVideos = filters => (
   })
 );
 
+export const getVideo = videoId => (
+  $.ajax({
+    method: 'GET',
+    url: `/api/videos/${videoId}`
+  })
+);
+
 export const postVideo = formData => (
   $.ajax({
     method: 'POST',

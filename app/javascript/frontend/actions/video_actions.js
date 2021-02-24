@@ -23,6 +23,12 @@ export const fetchVideos = filters => dispatch => {
   );
 };
 
+export const fetchVideo = videoId => dispatch => {
+  return APIUtil.getVideo(videoId).then(
+    video => dispatch(receiveVideo(video))
+  );
+};
+
 export const createVideo = video => dispatch => {
   return APIUtil.postVideo(video).then(
     video => dispatch(receiveVideo(video))
