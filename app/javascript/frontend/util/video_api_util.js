@@ -30,3 +30,10 @@ export const patchVideo = (videoId, video) => (
     data: { video }
   })
 );
+
+export const deleteVideo = videoId => (
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/videos/${videoId}`
+  })
+);

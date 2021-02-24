@@ -10,9 +10,20 @@ class VideoEdit extends React.Component {
 
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
+    this.populateFields();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.videoId !== this.props.match.params.videoId) {
+      this.populateFields();
+    }
+  }
+
+  populateFields() {
     this.props.fetchVideo(this.props.match.params.videoId).then(
       () => this.setState({
         title: this.props.video.title,
@@ -26,16 +37,24 @@ class VideoEdit extends React.Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();  
+    event.preventDefault();
 
     this.props.updateVideo(this.props.video.id, this.state).then(
-      () => this.props.history.push("/")
+      () => this.props.history.push({ pathname: '/feed' })
     );   
+  }
+
+  handleDelete(event) {
+    event.preventDefault();
+
+    this.props.destroyVideo(this.props.video.id).then(
+      () => this.props.history.push({ pathname: '/feed' })
+    );
   }
   
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form>
         <input onChange={this.handleInput} type="text" name="title" value={this.state.title}/>
 
         <br/>
@@ -51,7 +70,8 @@ class VideoEdit extends React.Component {
 
         <br/>
 
-        <button>Edit Video</button>
+        <button onClick={this.handleSubmit}>Edit Video</button>
+        <button onClick={this.handleDelete}>Delete Video</button>
       </form>
     ); 
   }

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchVideo, updateVideo } from '../../actions/video_actions'
+import { fetchVideo, updateVideo, destroyVideo } from '../../actions/video_actions'
 import VideoEdit from './video_edit.jsx';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -8,7 +8,8 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchVideo: videoId => dispatch(fetchVideo(videoId)),
-  updateVideo: (videoId, video) => dispatch(updateVideo(videoId, video))
+  updateVideo: (videoId, video) => dispatch(updateVideo(videoId, video)),
+  destroyVideo: videoId => dispatch(destroyVideo(videoId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoEdit);

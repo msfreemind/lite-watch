@@ -31,6 +31,16 @@ class Api::VideosController < ApplicationController
     end
   end
 
+  def destroy
+    @video = Video.find(params[:id])
+
+    if @video.destroy
+      render :show
+    else
+      render json: @video.errors.full_messages, status: 422
+    end
+  end
+
   private
 
   def video_params
