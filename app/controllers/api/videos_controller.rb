@@ -5,12 +5,17 @@ class Api::VideosController < ApplicationController
 
     render :index
   end
+
+  def show 
+    @video = Video.find(params[:id])
+    render :show
+  end
   
   def create
     @video = Video.new(video_params)
 
     if @video.save
-      render json: @video
+      render :show
     else
       render json: @video.errors.full_messages, status: 422
     end

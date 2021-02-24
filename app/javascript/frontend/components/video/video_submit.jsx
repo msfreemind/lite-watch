@@ -44,7 +44,7 @@ class VideoForm extends React.Component {
       formData.append('video[video_data]', this.state.videoFile);     
 
       this.props.createVideo(formData).then(
-        () => this.props.history.push("/feed")
+        () => this.props.history.push("/")
       ); 
     } else {
       // Handle error
@@ -54,7 +54,7 @@ class VideoForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input onChange={this.handleInput} placeholder="Title" type="texts" name="title" value={this.state.title}/>
+        <input onChange={this.handleInput} placeholder="Title" type="text" name="title" value={this.state.title}/>
 
         <br/>
 
