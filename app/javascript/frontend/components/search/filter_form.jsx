@@ -3,7 +3,7 @@ import React from 'react';
 class FilterForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { title: this.props.title };
+    this.state = { title: "" };
 
     this.handleInput = this.handleInput.bind(this);
   }
