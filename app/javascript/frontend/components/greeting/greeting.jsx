@@ -18,22 +18,19 @@ class Greeting extends React.Component {
   }
   
   render() {
-    const { currentUser } = this.props;
-
     if (this.loggedIn()) {
       return (
-        <div>
-          <h1>Welcome, {currentUser.username}!</h1>
-          <button onClick={this.uploadVideo}>Upload Video</button>
-          <button onClick={this.props.logout}>Log Out</button>
-        </div>
+        <ul className="header-nav">
+          <li><button onClick={this.uploadVideo}>Upload Video</button></li>
+          <li><button onClick={this.props.logout}>Log Out</button></li>
+        </ul>
       );
     } else {
       return (
-        <div>
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/login">Log In</Link>
-        </div>
+        <ul className="header-nav">
+          <li><Link to="/signup">Sign Up</Link></li>
+          <li><Link to="/login">Log In</Link></li>
+        </ul>
       );
     }    
   }

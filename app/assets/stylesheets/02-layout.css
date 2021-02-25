@@ -1,0 +1,57 @@
+.content {
+  padding: 20px;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+}
+
+form > input, form > textarea {
+  background: #fff;
+  border: 1px solid #fff;
+  color: #000;
+  margin: 8px 0px;
+}
+
+form > textarea {
+  padding: 10px;
+}
+
+form > input:focus, form > textarea:focus {
+  border-color: #333;
+}
+
+input[type="file"] {
+  background-color: #eee;
+  padding: 5px;
+}
+
+form button {
+  background-color: #eee;
+  font-weight: 700;
+  border: 1px solid #000;
+  border-radius: 5px;
+  width: max-content;
+  padding: 5px 10px;
+  margin: 0 auto;
+}
+
+form button:hover {
+  background-color: #ddd;
+}
+
+.form-submit {
+  margin: 0 auto;
+}
+
+.form-submit button {
+  margin: 0 20px;
+}

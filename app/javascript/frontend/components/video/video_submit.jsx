@@ -54,13 +54,16 @@ class VideoForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input onChange={this.handleInput} placeholder="Title" type="text" name="title" value={this.state.title}/>
+        Title
+        <br/>
+        <input onChange={this.handleInput} type="text" name="title" value={this.state.title}/>
 
         <br/>
         
+        Description
+        <br/>
         <textarea 
-          onChange={this.handleInput} 
-          placeholder="Description" 
+          onChange={this.handleInput}  
           name="description" 
           cols="30" 
           rows="10" 
@@ -68,8 +71,7 @@ class VideoForm extends React.Component {
         />
 
         <br/>
-
-        <h2>Add Video</h2>
+        
         <input onChange={this.handleFileInput} type="file" accept="video/avi, video/mp4"/>
 
         <br/>

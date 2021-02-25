@@ -55,13 +55,16 @@ class VideoEdit extends React.Component {
   render() {
     return (
       <form>
+        Title
+        <br/>
         <input onChange={this.handleInput} type="text" name="title" value={this.state.title}/>
 
         <br/>
 
+        Description
+        <br/>
         <textarea 
-          onChange={this.handleInput} 
-          placeholder="Description" 
+          onChange={this.handleInput}
           name="description" 
           cols="30" 
           rows="10" 
@@ -70,8 +73,10 @@ class VideoEdit extends React.Component {
 
         <br/>
 
-        <button onClick={this.handleSubmit}>Edit Video</button>
-        <button onClick={this.handleDelete}>Delete Video</button>
+        <div className="form-submit">
+          <button onClick={this.handleSubmit}>Edit Video</button>
+          <button onClick={this.handleDelete}>Delete Video</button>
+        </div>   
       </form>
     ); 
   }
