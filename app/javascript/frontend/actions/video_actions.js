@@ -11,9 +11,9 @@ export const receiveVideos = videos => ({
   videos
 });
 
-export const receiveVideo = video => ({
+export const receiveVideo = response => ({
   type: RECEIVE_VIDEO,
-  video
+  response
 });
 
 export const removeVideo = video => ({
@@ -31,7 +31,7 @@ export const fetchVideos = filters => dispatch => {
 
 export const fetchVideo = videoId => dispatch => {
   return APIUtil.getVideo(videoId).then(
-    video => dispatch(receiveVideo(video))
+    response => dispatch(receiveVideo(response))
   );
 };
 

@@ -1,0 +1,26 @@
+import { RECEIVE_REACTION, REMOVE_REACTION } from '../actions/reaction_actions';
+import { RECEIVE_VIDEO } from '../actions/video_actions'
+
+const reactionsReducer = (state = {}, action) => {
+  Object.freeze(state);
+  let nextState = Object.assign({}, state);
+
+  switch (action.type) {
+    case RECEIVE_REACTION:
+      nextState[action.reaction.id] = action.reaction;
+      return Object.assign({}, state, nextState);
+
+    case REMOVE_REACTION:
+      delete nextState[action.reaction.id];
+      return nextState;
+
+    case RECEIVE_VIDEO:
+      nextState[action.response.video.id] = action.response.reaction;
+      return Object.assign({}, state, action.response.reaction);
+      
+    default:
+      return state;
+  }
+};
+
+export default reactionsReducer;
