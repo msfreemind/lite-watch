@@ -2,11 +2,6 @@
   padding: 20px;
 }
 
-h2 {
-  font-weight: 700;
-  font-size: 24px;
-}
-
 form {
   display: flex;
   flex-direction: column;

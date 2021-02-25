@@ -67,35 +67,45 @@ class VideoShow extends React.Component {
 
     if (this.props.video) {
       return (
-        <div>
-          <video controls width="600">
+        <div className="video-container">
+          <video controls width="650">
             <source src={video.videoUrl} type="video/mp4"/>
             Sorry, your browser doesn't support embedded videos.
           </video>
   
-          <h2>{video.title}</h2>
-
-          <i 
-            onClick={e => this.toggleReaction(true, e)}
-            id="likes"
-            className={likedByUser === true ? "fas fa-thumbs-up" : "far fa-thumbs-up"}
-          /> 
-          {this.state.likes}
-
-          <i 
-            onClick={e => this.toggleReaction(false, e)}
-            id="dislikes"
-            className={likedByUser === false ? "fas fa-thumbs-down" : "far fa-thumbs-down"}
-          /> 
-          {this.state.dislikes}
-
           <div className="video-details">
+            <h2>{video.title}</h2>
+            
+            <ul className="video-reactions">
+              <li>
+                <i 
+                  onClick={e => this.toggleReaction(true, e)}
+                  id="likes"
+                  className={likedByUser === true ? "fas fa-thumbs-up" : "far fa-thumbs-up"}
+                /> 
+                {this.state.likes}
+              </li>
+
+              <li>
+                <i 
+                  onClick={e => this.toggleReaction(false, e)}
+                  id="dislikes"
+                  className={likedByUser === false ? "fas fa-thumbs-down" : "far fa-thumbs-down"}
+                /> 
+                {this.state.dislikes}
+              </li>
+            </ul>
+          </div>
+
+          <div className="video-description">
             <h3>{video.author}</h3>
             <p>{video.description}</p>
           </div>
-             
-          <h2>Comments</h2>
-          Todo
+          
+          <div className="video-comments">
+            <h3>Comments</h3>
+            Todo
+          </div>   
         </div>
       );
     } else {
