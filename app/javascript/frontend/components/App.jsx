@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import GreetingContainer from './greeting/greeting_container.jsx';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
@@ -13,14 +13,14 @@ const App = () => {
   return (
     <div>
       <header>
-        <h1>FeatureMe</h1>
+        <Link to="/"><h1>FeatureMe</h1></Link>
         <GreetingContainer/>            
       </header>
 
       <AuthRoute path="/login" component={LoginFormContainer}/>
       <AuthRoute path="/signup" component={SignupFormContainer}/>
 
-      <Route path="/feed" component={SearchContainer}/>
+      <Route exact path="/" component={SearchContainer}/>
 
       <Switch>
         <ProtectedRoute path="/videos/new" component={VideoSubmitContainer} />
