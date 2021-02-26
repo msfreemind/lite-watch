@@ -53,31 +53,33 @@ class VideoForm extends React.Component {
   
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        Title
-        <br/>
-        <input onChange={this.handleInput} type="text" name="title" value={this.state.title}/>
+      <div className="form-container">
+        <h1>Upload Video</h1>
 
-        <br/>
-        
-        Description
-        <br/>
-        <textarea 
-          onChange={this.handleInput}  
-          name="description" 
-          cols="30" 
-          rows="10" 
-          value={this.state.description}
-        />
+        <form onSubmit={this.handleSubmit}>
+          Title
+          <br/>
+          <input onChange={this.handleInput} type="text" name="title" value={this.state.title}/>
 
-        <br/>
-        
-        <input onChange={this.handleFileInput} type="file" accept="video/avi, video/mp4"/>
+          <br/>
+          
+          Description
+          <br/>
+          <textarea 
+            onChange={this.handleInput}  
+            name="description" 
+            cols="30" 
+            rows="10" 
+            value={this.state.description}
+          />
+          
+          <input onChange={this.handleFileInput} type="file" accept="video/avi, video/mp4"/>
 
-        <br/>
+          <br/>
 
-        <button>Upload Video</button>
-      </form>
+          <button>Upload Video</button>
+        </form>
+      </div>
     ); 
   }
 }
