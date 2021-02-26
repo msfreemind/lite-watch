@@ -15,7 +15,6 @@ const reactionsReducer = (state = {}, action) => {
       return nextState;
 
     case RECEIVE_VIDEO:
-      nextState[action.response.video.id] = action.response.reaction;
       return Object.assign({}, state, action.response.reaction);
       
     default:
