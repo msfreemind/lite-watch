@@ -69,3 +69,8 @@ form button:hover {
   background-color: red;
   color: white;
 }
+
+input#username, input#password {
+  width: 200px;
+  margin: 0 auto;
+}

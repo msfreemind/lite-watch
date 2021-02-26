@@ -13,7 +13,7 @@ class SessionForm extends React.Component {
   }
 
   handleInput(event) {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({ [event.target.id]: event.target.value });
   }
 
   handleSubmit(event) {
@@ -42,25 +42,25 @@ class SessionForm extends React.Component {
   
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <div className="form-container">
         <h1>{this.formAction()}</h1>
 
-        <Link to={this.altAction}>{this.altAction()}</Link>
+        <form onSubmit={this.handleSubmit}>
+          <ul>
+            {this.props.errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          </ul>
 
-        <ul>
-          {this.props.errors.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul>
+          <input type="text" placeholder="Username" onChange={this.handleInput} id="username" value={this.state.username}/>
 
-        <input type="text" placeholder="Username" onChange={this.handleInput} name="username" value={this.state.username}/>
+          <br/>
 
-        <br/>
+          <input type="password" placeholder="Password" onChange={this.handleInput} id="password" value={this.state.password}/>
 
-        <input type="password" placeholder="Password" onChange={this.handleInput} name="password" value={this.state.password}/>
+          <br/>
 
-        <br/>
-
-        <button>{this.formAction()}</button>
-      </form>
+          <button>{this.formAction()}</button>
+        </form>
+      </div>
     );  
   }
 }
