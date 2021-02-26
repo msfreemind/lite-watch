@@ -38,6 +38,7 @@
 }
 
 input[type="file"] {
+  border: 0;
   background-color: #eee;
   padding: 5px;
 }
