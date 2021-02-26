@@ -1,0 +1,18 @@
+.video-comments {
+  padding-top: 20px;
+}
+
+.video-comments textarea {
+  border-bottom: 1px solid #000;
+  color: #000;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+.comments-list {
+  margin-top: 35px;
+}
+
+.comments-list > li {
+  padding-bottom: 15px;
+}

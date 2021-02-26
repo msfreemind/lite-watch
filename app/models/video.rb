@@ -3,6 +3,7 @@ class Video < ApplicationRecord
 
   belongs_to :author, class_name: "User", foreign_key: "author_id"
   has_many :reactions
+  has_many :comments
 
   has_one_attached :video_data
   has_one_attached :thumbnail

@@ -37,3 +37,17 @@ if current_user
     end
   end
 end
+
+if @video.comments
+  json.comments do
+    @video.comments.each do |comment|
+      json.set! comment.id do
+        json.extract! comment, :id, :text
+        
+        json.author comment.user.username
+
+        json.videoId comment.video_id
+      end
+    end
+  end
+end

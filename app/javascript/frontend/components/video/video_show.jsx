@@ -1,4 +1,5 @@
 import React from 'react';
+import CommentIndex from '../comments/comment_index.jsx'
 
 class VideoShow extends React.Component {
   constructor(props) {
@@ -58,7 +59,7 @@ class VideoShow extends React.Component {
   }
 
   render() {
-    const { video, reaction } = this.props;
+    const { currentUser, video, reaction, comments, createComment } = this.props;
     let likedByUser = null;
 
     if (reaction) {
@@ -101,11 +102,8 @@ class VideoShow extends React.Component {
             <h3>{video.author}</h3>
             <p>{video.description}</p>
           </div>
-          
-          <div className="video-comments">
-            <h3>Comments</h3>
-            Todo
-          </div>   
+                   
+          <CommentIndex comments={comments} userId={currentUser.id} videoId={video.id} createComment={createComment}/>
         </div>
       );
     } else {

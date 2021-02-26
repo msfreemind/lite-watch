@@ -14,14 +14,14 @@
   text-align: center;
 }
 
-form {
+.form-container > form {
   display: flex;
   flex-direction: column;
   width: 400px;
   margin: 0 auto;
 }
 
-form > input, form > textarea {
+.form-container input, .form-container textarea {
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 7px;
@@ -29,11 +29,11 @@ form > input, form > textarea {
   margin: 8px 0px;
 }
 
-form > textarea {
+.form-container textarea {
   padding: 10px;
 }
 
-form > input:focus, form > textarea:focus {
+.form-container input:focus, .form-container textarea:focus {
   border-color: #333;
 }
 
