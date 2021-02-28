@@ -7,12 +7,14 @@ class VideoForm extends React.Component {
       title: "",
       description: "",
       videoUrl: "", 
-      videoFile: null
+      videoFile: null,
+      errors: ""
     };
 
     this.handleInput = this.handleInput.bind(this);
     this.handleFileInput = this.handleFileInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateCanvas = this.updateCanvas.bind(this);
   }
 
   handleInput(event) {
@@ -26,6 +28,9 @@ class VideoForm extends React.Component {
     reader.onloadend = () => this.setState({ videoUrl: reader.result, videoFile: file });
 
     if (file) {
+      const video = document.getElementById("video");
+      video.hidden = false;
+
       reader.readAsDataURL(file);
     } else {
       this.setState({ videoUrl: "", videoFile: null });
@@ -37,18 +42,33 @@ class VideoForm extends React.Component {
 
     if (this.state.videoFile) {
       const formData = new FormData();
+      const canvas = document.getElementById("prevImgCanvas");
+      this.updateCanvas();
 
       formData.append('video[title]', this.state.title);
       formData.append('video[description]', this.state.description);
       formData.append('video[author_id]', this.props.currentUser.id);
-      formData.append('video[video_data]', this.state.videoFile);     
+      formData.append('video[video_data]', this.state.videoFile); 
 
-      this.props.createVideo(formData).then(
-        () => this.props.history.push("/")
-      ); 
+      canvas.toBlob(blob => {
+        formData.append('video[thumbnail]', blob)
+
+        this.props.createVideo(formData).then(
+          () => this.props.history.push("/")
+        ); 
+      });
+      
     } else {
-      // Handle error
+      this.setState({ errors: "No video attached!" });
     }    
+  }
+
+  updateCanvas() {
+    const video = document.getElementById("video");
+    const canvas = document.getElementById("prevImgCanvas");
+    let context = canvas.getContext('2d');
+
+    context.drawImage(video, 0, 0, canvas.width, canvas.height)
   }
   
   render() {
@@ -75,10 +95,13 @@ class VideoForm extends React.Component {
           
           <input onChange={this.handleFileInput} type="file" accept="video/avi, video/mp4"/>
 
+          <video hidden controls id="video" src={this.state.videoUrl}></video>
+          <canvas hidden id="prevImgCanvas"></canvas>
+
           <br/>
 
           <button>Upload Video</button>
-        </form>
+        </form>        
       </div>
     ); 
   }
