@@ -12,7 +12,7 @@ class VideoIndex extends React.Component {
 
   render() {
     return (
-      <ul>
+      <ul className="thumbnails">
         {this.props.videos.map( (video, idx) => <VideoIndexItem key={idx} video={video}/> )}
       </ul>
     );

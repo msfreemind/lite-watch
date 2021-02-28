@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom'
 
 const VideoIndexItem = ({ video }) => {
   return (
-    <li>
+    <li className="thumbnail">
       <Link to={`/videos/${video.id}`}>
-        {video.thumbnailUrl}
-        {video.title}
+        <img src={video.thumbnailUrl}/>
+        <strong className="bold">{video.title}</strong>
       </Link>
+
+      <br/>
 
       {video.author}
     </li>

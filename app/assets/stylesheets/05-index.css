@@ -1,0 +1,17 @@
+.thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  width: 400px;
+  padding: 10px 15px;
+}
+
+.thumbnail img {
+  padding-bottom: 5px;
+}
+
+.bold {
+  font-weight: 700;
+}
