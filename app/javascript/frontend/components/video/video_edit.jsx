@@ -39,16 +39,21 @@ class VideoEdit extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    this.props.updateVideo(this.props.video.id, this.state).then(
-      () => this.props.history.push({ pathname: '/feed' })
-    );   
+    if (this.state.title !== "") {
+      this.props.updateVideo(this.props.video.id, this.state).then(
+        () => this.props.history.push({ pathname: `/videos/${this.props.video.id}` })
+      );
+    } else {
+      const titleError = document.getElementById("no-title");
+      titleError.hidden = false;
+    }
   }
 
   handleDelete(event) {
     event.preventDefault();
 
     this.props.destroyVideo(this.props.video.id).then(
-      () => this.props.history.push({ pathname: '/feed' })
+      () => this.props.history.push({ pathname: '/' })
     );
   }
   
@@ -60,6 +65,7 @@ class VideoEdit extends React.Component {
         <form>
           Title
           <br/>
+          <p id="no-title" className="error" hidden>Please enter a title</p>
           <input onChange={this.handleInput} type="text" name="title" value={this.state.title}/>
 
           <br/>
