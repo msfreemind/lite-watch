@@ -7,8 +7,7 @@ class VideoForm extends React.Component {
       title: "",
       description: "",
       videoUrl: "", 
-      videoFile: null,
-      errors: ""
+      videoFile: null
     };
 
     this.handleInput = this.handleInput.bind(this);
@@ -18,7 +17,7 @@ class VideoForm extends React.Component {
   }
 
   handleInput(event) {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({ [event.target.id]: event.target.value });
   }
 
   handleFileInput(event) {
@@ -40,7 +39,7 @@ class VideoForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    if (this.state.videoFile) {
+    if (this.state.videoFile && this.state.title !== "") {
       const formData = new FormData();
       const canvas = document.getElementById("prevImgCanvas");
       this.updateCanvas();
@@ -59,7 +58,15 @@ class VideoForm extends React.Component {
       });
       
     } else {
-      this.setState({ errors: "No video attached!" });
+      if (this.state.title === "") {
+        const titleError = document.getElementById("no-title");
+        titleError.hidden = false;
+      }
+
+      if (!this.state.videoFile) {
+        const videoError = document.getElementById("no-video");
+        videoError.hidden = false;
+      }     
     }    
   }
 
@@ -79,7 +86,8 @@ class VideoForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           Title
           <br/>
-          <input onChange={this.handleInput} type="text" name="title" value={this.state.title}/>
+          <p id="no-title" className="error" hidden>Please enter a title</p>
+          <input onChange={this.handleInput} type="text" id="title" value={this.state.title}/>
 
           <br/>
           
@@ -87,12 +95,13 @@ class VideoForm extends React.Component {
           <br/>
           <textarea 
             onChange={this.handleInput}  
-            name="description" 
+            id="description" 
             cols="30" 
             rows="10" 
             value={this.state.description}
           />
           
+          <p id="no-video" className="error" hidden>Please submit a video</p>
           <input onChange={this.handleFileInput} type="file" accept="video/avi, video/mp4"/>
 
           <video hidden controls id="video" src={this.state.videoUrl}></video>

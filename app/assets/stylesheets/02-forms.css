@@ -2,6 +2,10 @@
   padding: 20px;
 }
 
+.error {
+  color: red;
+}
+
 .form-container {
   display: flex;
   flex-direction: column;
