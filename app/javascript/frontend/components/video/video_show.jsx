@@ -1,24 +1,27 @@
 import React from 'react';
+import NotFound from '../not_found.jsx'
 import CommentIndex from '../comments/comment_index.jsx'
 
 class VideoShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { likes: 0, dislikes: 0 }
+    this.state = { likes: 0, dislikes: 0, noVideo: false }
 
     this.toggleReaction = this.toggleReaction.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchVideo(this.props.match.params.videoId).then(
-      () => this.updateReactionCounts()
+      () => this.updateReactionCounts(),
+      () => this.setState({ noVideo: true })
     );
   }
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.videoId !== this.props.match.params.videoId) {
       this.props.fetchVideo(this.props.match.params.videoId).then(
-        () => this.updateReactionCounts()
+        () => this.updateReactionCounts(),
+        () => this.setState({ noVideo: true })
       );
     }
   }
@@ -62,7 +65,7 @@ class VideoShow extends React.Component {
       likedByUser = reaction.like;
     }
 
-    if (this.props.video) {
+    if (video) {
       return (
         <div className="video-container">
           <video controls width="650">
@@ -102,6 +105,8 @@ class VideoShow extends React.Component {
           <CommentIndex history={history} comments={comments} user={currentUser} videoId={video.id} createComment={createComment}/>
         </div>
       );
+    } else if (this.state.noVideo) {
+      return <NotFound/>;
     } else {
       return (
         <div></div>

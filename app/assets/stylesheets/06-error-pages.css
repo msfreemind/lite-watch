@@ -1,0 +1,8 @@
+.not-found, .access-denied {
+  text-align: center;
+}
+
+.not-found > h1, .access-denied > h1 {
+  font-weight: 700;
+  font-size: 50px;
+}

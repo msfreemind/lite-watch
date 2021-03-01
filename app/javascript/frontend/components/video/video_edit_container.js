@@ -3,7 +3,8 @@ import { fetchVideo, updateVideo, destroyVideo } from '../../actions/video_actio
 import VideoEdit from './video_edit.jsx';
 
 const mapStateToProps = (state, ownProps) => ({
-  video: state.entities.videos[ownProps.match.params.videoId]
+  video: state.entities.videos[ownProps.match.params.videoId],
+  currentUser: state.entities.users[state.session.id]
 });
 
 const mapDispatchToProps = dispatch => ({

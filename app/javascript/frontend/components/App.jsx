@@ -9,6 +9,7 @@ import VideoEditContainer from './video/video_edit_container';
 import VideoShowContainer from './video/video_show_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
 import FilterFormContainer from './greeting/filter_form_container.js';
+import NotFound from './not_found.jsx'
 
 const App = () => {
   return (
@@ -20,15 +21,16 @@ const App = () => {
       </header>
 
       <main className="content">
-        <AuthRoute path="/login" component={LoginFormContainer}/>
-        <AuthRoute path="/signup" component={SignupFormContainer}/>
-
-        <Route exact path="/" component={SearchContainer}/>
-
         <Switch>
+          <AuthRoute path="/login" component={LoginFormContainer}/>
+          <AuthRoute path="/signup" component={SignupFormContainer}/>
+
+          <Route exact path="/" component={SearchContainer}/>
+        
           <ProtectedRoute path="/videos/new" component={VideoSubmitContainer} />
           <ProtectedRoute path="/videos/edit/:videoId" component={VideoEditContainer} />
-          <Route path="/videos/:videoId" component={VideoShowContainer} />        
+          <Route path="/videos/:videoId" component={VideoShowContainer} />
+          <Route component={NotFound} />      
         </Switch>
       </main>
     </div>  
