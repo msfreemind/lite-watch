@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class FilterForm extends React.Component {
   constructor(props) {
@@ -6,20 +7,26 @@ class FilterForm extends React.Component {
     this.state = { title: "" };
 
     this.handleInput = this.handleInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInput(event) {
     this.setState({ [event.target.name]: event.target.value });
-    this.props.updateFilter([event.target.name], event.target.value);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.history.push(`/?title=${this.state.title}`);
+    this.setState({ title: "" })
   }
   
   render() {
     return (
-      <div className="header-search">        
+      <form onSubmit={this.handleSubmit} className="header-search">        
         <input onChange={this.handleInput} placeholder="Search" type="text" name="title" value={this.state.title}/>
-      </div>       
+      </form>       
     ); 
   }
 }
 
-export default FilterForm;
+export default withRouter(FilterForm);

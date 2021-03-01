@@ -1,3 +1,8 @@
+.videos-index h1 {
+  font-weight: 700;
+  font-size: 20px;
+}
+
 .thumbnails {
   display: flex;
   flex-wrap: wrap;

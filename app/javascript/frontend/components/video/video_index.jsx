@@ -7,7 +7,21 @@ class VideoIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchVideos();
+    if (!this.props.titleParam) {
+      this.props.updateFilter();
+    } else {
+      this.props.updateFilter("title", this.props.titleParam);
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.titleParam !== this.props.titleParam) {
+      if (this.props.titleParam) {
+        this.props.updateFilter("title", this.props.titleParam);
+      } else {
+        this.props.updateFilter("title", "");
+      }    
+    }
   }
 
   render() {
