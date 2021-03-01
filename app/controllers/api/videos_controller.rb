@@ -1,7 +1,7 @@
 class Api::VideosController < ApplicationController
   def index
     title = params[:title] ? params[:title] : ""
-    @videos = Video.where("title ILIKE ?", "%#{title}%")
+    @videos = Video.where("title ILIKE ?", "%#{title}%").includes(:author)
 
     render :index
   end

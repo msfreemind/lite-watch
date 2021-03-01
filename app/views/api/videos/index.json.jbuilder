@@ -1,4 +1,4 @@
-@videos.each do |video|
+@videos.with_attached_video_data.with_attached_thumbnail.each do |video|
   json.set! video.id do
     json.extract! video, :id, :title, :description
 
