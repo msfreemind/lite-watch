@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createReaction, destroyReaction } from '../../actions/reaction_actions';
+import { createReaction } from '../../actions/reaction_actions';
 import { createComment } from '../../actions/comment_actions';
 import { fetchVideo } from '../../actions/video_actions';
 import { userReaction } from '../../reducers/selectors';
@@ -15,7 +15,6 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
   fetchVideo: videoId => dispatch(fetchVideo(videoId)),
   createReaction: reaction => dispatch(createReaction(reaction)),
-  destroyReaction: reactionId => dispatch(destroyReaction(reactionId)),
   createComment: comment => dispatch(createComment(comment))
 });
 

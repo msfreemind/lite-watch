@@ -29,32 +29,28 @@ class VideoShow extends React.Component {
 
   toggleReaction(likeValue, event) {
     if (this.props.currentUser) {
-      const { currentUser, video, createReaction, destroyReaction, reaction } = this.props;
+      const { currentUser, video, createReaction, reaction } = this.props;
       const newReaction = { like: likeValue, user_id: currentUser.id, video_id: video.id };
 
-      if (reaction && reaction.like === likeValue) {
-        destroyReaction(newReaction).then(
-          () => this.setState({ [event.target.id]: this.state[event.target.id] -= 1 })
-        );
-      } else {
-        createReaction(newReaction).then(
-          () => {
-            if (event.target.id === "likes") {
-              if (reaction) {
-                this.setState({ likes: this.state.likes += 1, dislikes: this.state.dislikes -= 1 })
-              } else {
-                this.setState({ likes: this.state.likes += 1 })
-              }   
+      createReaction(newReaction).then(
+        () => {
+          if (reaction.like === likeValue) {
+            this.setState({ [event.target.id]: this.state[event.target.id] -= 1 })
+          } else if (event.target.id === "likes") {
+            if (reaction.like === false) {
+              this.setState({ likes: this.state.likes += 1, dislikes: this.state.dislikes -= 1 })
             } else {
-              if (reaction) {
-                this.setState({ dislikes: this.state.dislikes += 1, likes: this.state.likes -= 1 })
-              } else {
-                this.setState({ dislikes: this.state.dislikes += 1 })
-              }
+              this.setState({ likes: this.state.likes += 1 })
+            }   
+          } else {
+            if (reaction.like === true) {
+              this.setState({ dislikes: this.state.dislikes += 1, likes: this.state.likes -= 1 })
+            } else {
+              this.setState({ dislikes: this.state.dislikes += 1 })
             }
           }
-        );
-      }
+        }
+      );
     }
   }
 
@@ -103,7 +99,7 @@ class VideoShow extends React.Component {
             <p>{video.description}</p>
           </div>
                    
-          <CommentIndex comments={comments} userId={currentUser.id} videoId={video.id} createComment={createComment}/>
+          <CommentIndex comments={comments} user={currentUser} videoId={video.id} createComment={createComment}/>
         </div>
       );
     } else {

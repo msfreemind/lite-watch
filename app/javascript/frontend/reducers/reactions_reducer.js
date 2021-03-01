@@ -1,4 +1,4 @@
-import { RECEIVE_REACTION, REMOVE_REACTION } from '../actions/reaction_actions';
+import { RECEIVE_REACTION } from '../actions/reaction_actions';
 import { RECEIVE_VIDEO } from '../actions/video_actions'
 
 const reactionsReducer = (state = {}, action) => {
@@ -9,10 +9,6 @@ const reactionsReducer = (state = {}, action) => {
     case RECEIVE_REACTION:
       nextState[action.reaction.id] = action.reaction;
       return Object.assign({}, state, nextState);
-
-    case REMOVE_REACTION:
-      delete nextState[action.reaction.id];
-      return nextState;
 
     case RECEIVE_VIDEO:
       return Object.assign({}, state, action.response.reaction);
