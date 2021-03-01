@@ -81,3 +81,9 @@ input#username, input#password {
   width: 200px;
   margin: 0 auto;
 }
+
+.session-errors {
+  color: red;
+  text-align: center;
+  padding-bottom: 5px;
+}

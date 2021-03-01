@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -20,8 +19,16 @@ class SessionForm extends React.Component {
     event.preventDefault();    
     
     this.props.processForm(this.state).then(
-      () => this.props.history.push('/')
+      () => {
+        if (!this.props.errors) {
+          this.props.history.push('/')
+        }        
+      }
     );
+  }
+
+  componentWillUnmount() {
+    this.props.flushErrors();
   }
 
   formAction() {
@@ -46,7 +53,7 @@ class SessionForm extends React.Component {
         <h1>{this.formAction()}</h1>
 
         <form onSubmit={this.handleSubmit}>
-          <ul>
+          <ul className="session-errors">
             {this.props.errors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
 
