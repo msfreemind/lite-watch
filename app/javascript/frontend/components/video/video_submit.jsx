@@ -109,7 +109,7 @@ class VideoForm extends React.Component {
 
           <strong hidden id="thumb-select" className="bold">Select the frame for the video thumbnail:</strong>
           <video hidden controls id="video" src={this.state.videoUrl}></video>
-          <canvas hidden id="prevImgCanvas"></canvas>
+          <canvas hidden id="prevImgCanvas" width="1920" height="1080"></canvas>
 
           <br/>
 
