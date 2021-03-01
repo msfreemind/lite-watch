@@ -55,7 +55,7 @@ class VideoShow extends React.Component {
   }
 
   render() {
-    const { currentUser, video, reaction, comments, createComment } = this.props;
+    const { currentUser, video, reaction, comments, createComment, history } = this.props;
     let likedByUser = null;
 
     if (reaction) {
@@ -99,7 +99,7 @@ class VideoShow extends React.Component {
             <p>{video.description}</p>
           </div>
                    
-          <CommentIndex comments={comments} user={currentUser} videoId={video.id} createComment={createComment}/>
+          <CommentIndex history={history} comments={comments} user={currentUser} videoId={video.id} createComment={createComment}/>
         </div>
       );
     } else {

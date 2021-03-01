@@ -4,7 +4,7 @@ import CommentIndexItem from './comment_index_item.jsx'
 class CommentIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { text: "", user_id: this.props.userId, video_id: this.props.videoId };
+    this.state = { text: "" };
 
     this.handleInput = this.handleInput.bind(this);
     this.submitComment = this.submitComment.bind(this);
@@ -17,9 +17,15 @@ class CommentIndex extends React.Component {
   submitComment(event) {
     event.preventDefault();
 
-    this.props.createComment(this.state).then(
-      () => this.setState({ text: "" })
-    );
+    if (this.props.user) {
+      const comment = { text: this.state.text, user_id: this.props.user.id, video_id: this.props.videoId };
+
+      this.props.createComment(comment).then(
+        () => this.setState({ text: "" })
+      );
+    } else {
+      this.props.history.push("/login");
+    }    
   }
 
   render() {
