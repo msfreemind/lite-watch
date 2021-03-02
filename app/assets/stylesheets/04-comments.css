@@ -3,7 +3,7 @@
 }
 
 .video-comments textarea {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #aaa;
   color: #000;
   margin-bottom: 5px;
   padding: 10px;
@@ -15,4 +15,19 @@
 
 .comments-list > li {
   padding-bottom: 15px;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment > strong {
+  font-weight: 700;
+}
+
+@media all and (max-width: 470px) {
+  .video-comments textarea {
+    width: 95%;
+  }
 }

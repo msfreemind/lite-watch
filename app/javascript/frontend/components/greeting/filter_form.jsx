@@ -22,9 +22,13 @@ class FilterForm extends React.Component {
   
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="header-search">        
-        <input onChange={this.handleInput} placeholder="Search" type="text" name="title" value={this.state.title}/>
-      </form>       
+      <div className="header-search">
+        <i className="fas fa-search"></i>
+
+        <form onSubmit={this.handleSubmit}>        
+          <input onChange={this.handleInput} placeholder="Search" type="text" name="title" value={this.state.title}/>
+        </form>
+      </div>       
     ); 
   }
 }

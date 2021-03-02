@@ -21,6 +21,8 @@ class Greeting extends React.Component {
     if (this.loggedIn()) {
       return (
         <ul className="header-nav">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <i class="fas fa-sign-out-alt"></i>
           <li><button onClick={this.uploadVideo}>Upload Video</button></li>
           <li><button onClick={this.props.logout}>Log Out</button></li>
         </ul>

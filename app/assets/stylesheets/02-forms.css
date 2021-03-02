@@ -8,6 +8,7 @@
 
 .form-container {
   display: flex;
+  align-items: center;
   flex-direction: column;
   width: 400px;
   margin: 0 auto;
@@ -23,8 +24,6 @@
 .form-container > form {
   display: flex;
   flex-direction: column;
-  width: 400px;
-  margin: 0 auto;
 }
 
 .form-container input, .form-container textarea {
@@ -64,10 +63,6 @@ form button:hover {
   background-color: #000;
 }
 
-.form-submit {
-  margin: 0 auto;
-}
-
 .form-submit button {
   margin: 0 15px;
 }
@@ -86,4 +81,20 @@ input#username, input#password {
   color: red;
   text-align: center;
   padding-bottom: 5px;
+}
+
+@media all and (max-width: 420px) {
+  .form-container, input[type="file"] {
+    width: 100%;
+  }
+
+  .form-submit {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .form-submit button {
+    margin-bottom: 10px;
+  }
 }

@@ -42,3 +42,9 @@ h3 {
   padding: 15px;
   margin-top: 10px;
 }
+
+@media all and (max-width: 670px) {
+  .video-container, .video-container > video {
+    width: 100%;
+  }
+}

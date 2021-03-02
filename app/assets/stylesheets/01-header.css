@@ -21,15 +21,21 @@ body {
 }
 
 .header-search {
-  width: 50%;
-  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.header-search > form {
+  width: 100%;
+  margin-right: 20px;
 }
 
 input {
   padding: 5px 10px;
 }
 
-.header-search > input {
+.header-search input {
   background-color: rgb(59, 67, 138);
   border: 1px solid rgb(68, 75, 136);
   font-weight: 300;
@@ -37,11 +43,11 @@ input {
   color: #fff;
 }
 
-.header-search > input:focus {
+.header-search input:focus {
   border-color: #ccc;
 }
 
-.header-search > input::placeholder {
+.header-search input::placeholder {
   color: #ccc;
 }
 
@@ -53,4 +59,27 @@ input {
 
 .header-nav > li {
   padding: 0 20px;
+}
+
+.header i {
+  display: none;
+  padding: 0 10px;
+}
+
+@media all and (max-width: 450px) {
+  .header-search > form, .header-nav > li {
+    display: none;
+  }
+
+  .header {
+    justify-content: space-evenly;
+  }
+
+  .header-search {
+    width: 36px;
+  }
+
+  .header i {
+    display: block;
+  }
 }
