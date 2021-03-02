@@ -38,16 +38,16 @@ class VideoShow extends React.Component {
 
       createReaction(newReaction).then(
         () => {
-          if (reaction.like === likeValue) {
+          if (reaction && reaction.like === likeValue) {
             this.setState({ [event.target.id]: this.state[event.target.id] -= 1 })
           } else if (event.target.id === "likes") {
-            if (reaction.like === false) {
+            if (reaction && reaction.like === false) {
               this.setState({ likes: this.state.likes += 1, dislikes: this.state.dislikes -= 1 })
             } else {
               this.setState({ likes: this.state.likes += 1 })
             }   
           } else {
-            if (reaction.like === true) {
+            if (reaction && reaction.like === true) {
               this.setState({ dislikes: this.state.dislikes += 1, likes: this.state.likes -= 1 })
             } else {
               this.setState({ dislikes: this.state.dislikes += 1 })
