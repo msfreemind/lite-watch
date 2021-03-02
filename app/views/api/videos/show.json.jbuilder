@@ -8,6 +8,8 @@ json.video do
     
     json.dislikes @video.dislike_count
 
+    json.playCount @video.play_count
+
     if @video.video_data.attached?
       json.videoUrl url_for(@video.video_data)
     else

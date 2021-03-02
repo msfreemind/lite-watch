@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { createReaction } from '../../actions/reaction_actions';
 import { createComment } from '../../actions/comment_actions';
-import { fetchVideo } from '../../actions/video_actions';
+import { fetchVideo, updateVideo } from '../../actions/video_actions';
 import { userReaction } from '../../reducers/selectors';
 import VideoShow from './video_show.jsx';
 
@@ -15,7 +15,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => ({
   fetchVideo: videoId => dispatch(fetchVideo(videoId)),
   createReaction: reaction => dispatch(createReaction(reaction)),
-  createComment: comment => dispatch(createComment(comment))
+  createComment: comment => dispatch(createComment(comment)),
+  updateVideo: (videoId, video) => dispatch(updateVideo(videoId, video))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoShow);

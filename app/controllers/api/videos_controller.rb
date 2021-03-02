@@ -47,7 +47,8 @@ class Api::VideosController < ApplicationController
     params.require(:video).permit(
       :title, 
       :description, 
-      :author_id, 
+      :author_id,
+      :play_count, 
       :video_data, 
       :thumbnail
     )

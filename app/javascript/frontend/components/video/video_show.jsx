@@ -5,9 +5,10 @@ import CommentIndex from '../comments/comment_index.jsx'
 class VideoShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { likes: 0, dislikes: 0, noVideo: false }
+    this.state = { likes: 0, dislikes: 0, noVideo: false, sentPlay: false }
 
     this.toggleReaction = this.toggleReaction.bind(this);
+    this.sendPlay = this.sendPlay.bind(this);
   }
 
   componentDidMount() {
@@ -57,9 +58,21 @@ class VideoShow extends React.Component {
     }
   }
 
+  sendPlay() {
+    if (!this.state.sentPlay) {
+      this.props.updateVideo(this.props.video.id, { play_count: this.props.video.playCount + 1 });
+      this.setState({ sentPlay: true });
+    }
+  }
+
   render() {
     const { currentUser, video, reaction, comments, createComment, history } = this.props;
     let likedByUser = null;
+    let viewText = "views";
+  
+    if (video && video.playCount === 1) {
+      viewText = "view"
+    }
 
     if (reaction) {
       likedByUser = reaction.like;
@@ -68,7 +81,7 @@ class VideoShow extends React.Component {
     if (video) {
       return (
         <div className="video-container">
-          <video controls width="650">
+          <video onPlay={this.sendPlay} controls width="650">
             <source src={video.videoUrl} type="video/mp4"/>
             Sorry, your browser doesn't support embedded videos.
           </video>
@@ -96,6 +109,8 @@ class VideoShow extends React.Component {
               </li>
             </ul>
           </div>
+
+          <small className="play-count">{video.playCount} {viewText}</small>
 
           <div className="video-description">
             <h3>{video.author}</h3>

@@ -2,6 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 const VideoIndexItem = ({ video }) => {
+  let viewText = "views";
+  
+  if (video.playCount === 1) {
+    viewText = "view"
+  }
+
   return (
     <li className="thumbnail">
       <Link to={`/videos/${video.id}`}>
@@ -9,9 +15,8 @@ const VideoIndexItem = ({ video }) => {
         <strong className="bold">{video.title}</strong>
       </Link>
 
-      <br/>
-
-      {video.author}
+      <small>{video.author}</small>
+      <small>{video.playCount} {viewText}</small>
     </li>
   );
 };

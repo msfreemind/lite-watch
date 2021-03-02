@@ -9,12 +9,18 @@
 }
 
 .thumbnail {
+  display: flex;
+  flex-direction: column;
   width: 400px;
   padding: 10px 15px;
 }
 
 .thumbnail img {
   padding-bottom: 5px;
+}
+
+.thumbnail > a {
+  margin-bottom: 5px;
 }
 
 .bold {
