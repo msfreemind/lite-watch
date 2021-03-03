@@ -2,7 +2,7 @@
   "name": "feature-me",
   "private": true,
   "engines": {
-    "node": "10.13.0",
+    "node": "15.8.0",
     "npm": "6.4.1"
   },
   "dependencies": {
