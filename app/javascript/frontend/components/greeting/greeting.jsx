@@ -21,8 +21,8 @@ class Greeting extends React.Component {
     if (this.loggedIn()) {
       return (
         <ul className="header-nav">
-          <i class="fas fa-cloud-upload-alt"></i>
-          <i class="fas fa-sign-out-alt"></i>
+          <i onClick={this.uploadVideo} className="fas fa-cloud-upload-alt"/>
+          <i id="sign-out" onClick={this.props.logout} className="fas fa-sign-out-alt"/>
           <li><button onClick={this.uploadVideo}>Upload Video</button></li>
           <li><button onClick={this.props.logout}>Log Out</button></li>
         </ul>
@@ -30,6 +30,8 @@ class Greeting extends React.Component {
     } else {
       return (
         <ul className="header-nav">
+          <Link to="/signup"><i className="fas fa-user-plus"/></Link>
+          <Link to="/login"><i id="sign-in" className="fas fa-sign-in-alt"/></Link>
           <li><Link to="/signup">Sign Up</Link></li>
           <li><Link to="/login">Log In</Link></li>
         </ul>
