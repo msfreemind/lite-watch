@@ -14,6 +14,10 @@
   margin: 0 auto;
 }
 
+.form-container video {
+  width: 400px;
+}
+
 .form-container h1 {
   font-weight: 700;
   font-size: 36px;
@@ -84,7 +88,7 @@ input#username, input#password {
 }
 
 @media all and (max-width: 420px) {
-  .form-container, input[type="file"] {
+  .form-container, input[type="file"], .form-container video {
     width: 100%;
   }
 
