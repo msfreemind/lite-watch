@@ -9,7 +9,8 @@ h3 {
 }
 
 .video-container {
-  width: 650px;
+  width: 960px;
+  margin: 0 auto;
 }
 
 .video-details {
@@ -43,7 +44,7 @@ h3 {
   margin-top: 10px;
 }
 
-@media all and (max-width: 670px) {
+@media all and (max-width: 1075px) {
   .video-container, .video-container > video {
     width: 100%;
   }
