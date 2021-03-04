@@ -105,7 +105,7 @@ class VideoForm extends React.Component {
           />
           
           <p id="no-video" className="error" hidden>Please submit a video</p>
-          <input onChange={this.handleFileInput} type="file" accept="video/avi, video/mp4, video/mov"/>
+          <input onChange={this.handleFileInput} type="file" accept="video/avi, video/mp4"/>
 
           <strong hidden id="thumb-select" className="bold">Select the frame for the video thumbnail:</strong>
           <video hidden controls id="video" src={this.state.videoUrl}></video>
