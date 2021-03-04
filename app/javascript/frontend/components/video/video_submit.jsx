@@ -47,6 +47,8 @@ class VideoForm extends React.Component {
       const canvas = document.getElementById("prevImgCanvas");
       this.updateCanvas();
 
+      this.loadSpinner();
+
       formData.append('video[title]', this.state.title);
       formData.append('video[description]', this.state.description);
       formData.append('video[author_id]', this.props.currentUser.id);
@@ -58,8 +60,7 @@ class VideoForm extends React.Component {
         this.props.createVideo(formData).then(
           () => this.props.history.push("/")
         ); 
-      });
-      
+      });  
     } else {
       if (this.state.title === "") {
         const titleError = document.getElementById("no-title");
@@ -79,6 +80,11 @@ class VideoForm extends React.Component {
     let context = canvas.getContext('2d');
 
     context.drawImage(video, 0, 0, video.videoWidth, Math.floor(video.videoWidth * (9 / 16)), 0, 0, canvas.width, canvas.height)
+  }
+
+  loadSpinner() {
+    const uploadButton = document.getElementById("upload-video-button");
+    uploadButton.innerHTML = "<div class='loader'></div>";
   }
   
   render() {
@@ -113,7 +119,7 @@ class VideoForm extends React.Component {
 
           <br/>
 
-          <button>Upload Video</button>
+          <button id="upload-video-button">Upload Video</button>
         </form>        
       </div>
     ); 
