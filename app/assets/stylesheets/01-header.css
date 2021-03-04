@@ -62,6 +62,11 @@ input {
   width: max-content;
 }
 
+.header-nav button {
+  display: flex;
+  align-items: center;
+}
+
 .header i {
   display: none;
   padding: 0 10px;
@@ -90,7 +95,7 @@ i#sign-in, i#sign-out {
   right: 20px;
 }
 
-@media all and (max-width: 550px) {
+@media all and (max-width: 560px) {
   .normal-form, .header-nav > li {
     display: none;
   }

@@ -1,0 +1,41 @@
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  
+  border-top: 7px solid #FFF;
+}
+
+#user-button {
+  position: relative;
+}
+
+#user-button:hover #user-dropdown {
+  display: block;
+}
+
+#user-dropdown {
+  display: none;
+  position: absolute;
+  background: #eee;
+  color: black;
+  top: 18px;
+  right: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 1%;
+  z-index: 1;
+  width: 110px;
+  box-shadow: -1px 4px 6px 1px rgba(0, 0, 0, 0.09);
+}
+
+#user-dropdown li {
+  padding: 5px;
+  cursor: pointer;
+}
+
+#user-dropdown li:hover {
+  background: rgb(198, 201, 223);
+  border-radius: 5%;
+}

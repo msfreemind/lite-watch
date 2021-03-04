@@ -23,8 +23,13 @@ class Greeting extends React.Component {
         <ul className="header-nav">
           <i onClick={this.uploadVideo} className="fas fa-cloud-upload-alt"/>
           <i id="sign-out" onClick={this.props.logout} className="fas fa-sign-out-alt"/>
-          <li><button onClick={this.uploadVideo}>Upload Video</button></li>
-          <li><button onClick={this.props.logout}>Log Out</button></li>
+          <li id="user-button">
+            <button>{this.props.currentUser.username} &nbsp; <div className="arrow-down"/></button>
+            <ul id="user-dropdown">
+              <li onClick={this.uploadVideo}>Upload Video</li>
+              <li onClick={this.props.logout}>Log Out</li>
+            </ul>
+          </li>
         </ul>
       );
     } else {
