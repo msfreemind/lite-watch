@@ -2,6 +2,7 @@ class User < ApplicationRecord
   attr_reader :password
 
   validates :username, presence: true, uniqueness: true
+  validates :username, length: { maximum: 13 }
   validates :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
