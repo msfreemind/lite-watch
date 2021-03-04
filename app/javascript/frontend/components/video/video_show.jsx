@@ -81,7 +81,7 @@ class VideoShow extends React.Component {
     if (video) {
       return (
         <div className="video-container">
-          <video onPlay={this.sendPlay} controls width="960">
+          <video onPlay={this.sendPlay} controls width="960" height="540">
             <source src={video.videoUrl} type="video/mp4"/>
             Sorry, your browser doesn't support embedded videos.
           </video>
