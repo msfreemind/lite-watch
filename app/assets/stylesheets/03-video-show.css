@@ -44,8 +44,21 @@ h3 {
   margin-top: 10px;
 }
 
-@media all and (max-width: 1075px) {
-  .video-container, .video-container > video {
+@media all and (max-width: 1017px) {
+  .real-video-container {
+    position: relative;
     width: 100%;
+    padding-bottom: 56.25%;
+  }
+
+  .video-container {
+    width: 100%;
+  }
+  
+  .video-container video {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
   }
 }

@@ -16,6 +16,10 @@ span, article, footer, time, small {
   background: transparent;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 ul {
   list-style: none;
 }

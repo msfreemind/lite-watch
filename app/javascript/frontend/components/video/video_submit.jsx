@@ -78,7 +78,7 @@ class VideoForm extends React.Component {
     const canvas = document.getElementById("prevImgCanvas");
     let context = canvas.getContext('2d');
 
-    context.drawImage(video, 0, 0, canvas.width, canvas.height)
+    context.drawImage(video, 0, 0, video.videoWidth, Math.floor(video.videoWidth * (9 / 16)), 0, 0, canvas.width, canvas.height)
   }
   
   render() {
