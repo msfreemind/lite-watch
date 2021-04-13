@@ -13,7 +13,7 @@ import NotFound from './not_found.jsx'
 
 const App = () => {
   return (
-    <div>
+    <div className="page">
       <header className="header">
         <Link to="/"><h1>FeatureMe</h1></Link>
         <FilterFormContainer/>
@@ -33,6 +33,8 @@ const App = () => {
           <Route component={NotFound} />      
         </Switch>
       </main>
+
+      <footer>© 2021, Mark Swan</footer>
     </div>  
   );
 }

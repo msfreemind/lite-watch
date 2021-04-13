@@ -5,6 +5,20 @@ body {
   background: #eee;
 }
 
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  flex: 0 0 45px;
+  margin-top: auto;
+  text-align: center;
+  font-weight: 700;
+  padding-top: 20px;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
