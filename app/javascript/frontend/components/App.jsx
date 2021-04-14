@@ -15,26 +15,28 @@ const App = () => {
   return (
     <div className="page">
       <header className="header">
-        <Link to="/"><h1>FeatureMe</h1></Link>
+        <Link to="/"><h1>LiteWatch</h1></Link>
         <FilterFormContainer/>
         <GreetingContainer/>            
       </header>
 
-      <main className="content">
-        <Switch>
-          <AuthRoute path="/login" component={LoginFormContainer}/>
-          <AuthRoute path="/signup" component={SignupFormContainer}/>
+      <div className="page-content">
+        <main className="content">
+          <Switch>
+            <AuthRoute path="/login" component={LoginFormContainer}/>
+            <AuthRoute path="/signup" component={SignupFormContainer}/>
 
-          <Route exact path="/" component={SearchContainer}/>
-        
-          <ProtectedRoute path="/videos/new" component={VideoSubmitContainer} />
-          <ProtectedRoute path="/videos/edit/:videoId" component={VideoEditContainer} />
-          <Route path="/videos/:videoId" component={VideoShowContainer} />
-          <Route component={NotFound} />      
-        </Switch>
-      </main>
+            <Route exact path="/" component={SearchContainer}/>
+          
+            <ProtectedRoute path="/videos/new" component={VideoSubmitContainer} />
+            <ProtectedRoute path="/videos/edit/:videoId" component={VideoEditContainer} />
+            <Route path="/videos/:videoId" component={VideoShowContainer} />
+            <Route component={NotFound} />      
+          </Switch>
+        </main>
 
-      <footer>© 2021, Mark Swan</footer>
+        <footer>© 2021, Mark Swan</footer>
+      </div>
     </div>  
   );
 }
