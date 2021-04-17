@@ -22,7 +22,7 @@ body {
 }
 
 .page-content {
-  min-height: calc(100vh - 58px);
+  min-height: calc(calc(var(--vh, 1vh) * 100) - 58px);
   margin-top: 58px;
   display: flex;
   flex-direction: column;
