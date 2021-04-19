@@ -1,8 +1,11 @@
 # LiteWatch
 
-## Overview
-
 [LiteWatch](https://www.lite.watch "LiteWatch") is a platform for sharing and reacting to videos.
+
+## Table of Contents
+* [Technologies Used](#technologies-used)
+* [Video Uploading / Custom Thumbnails](#video-uploading--custom-thumbnails)
+* [Video Likes/Dislikes](#video-likesdislikes)
 
 ## Technologies Used
 
