@@ -2,6 +2,9 @@
 
 [LiteWatch](https://www.lite.watch "LiteWatch") is a platform for sharing and reacting to videos.
 
+[logo]: https://github.com/msfreemind/lite-watch/blob/main/app/assets/images/lw-readme-logo.png "LiteWatch"
+![alt text][logo]
+
 ## Table of Contents
 * [Technologies Used](#technologies-used)
 * [Video Uploading / Custom Thumbnails](#video-uploading--custom-thumbnails)
