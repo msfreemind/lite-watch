@@ -12,7 +12,7 @@
 
 ## Technologies Used
 
-LiteWatch features HTML5 video playback. The frontend is written within a React/Redux framework to allow for fast site navigation, while the backend is Ruby on Rails on top of a PostgreSQL database. The Rails server responds to AJAX requests with JSON that is built using the Jbuilder gem.
+LiteWatch features HTML5 video playback. The frontend is written within a React/Redux framework to allow for fast site navigation; the backend is Ruby on Rails on top of PostgreSQL. The Rails server responds to AJAX requests with JSON that is built using the Jbuilder gem.
 
 ## Video Uploading / Custom Thumbnails
 
