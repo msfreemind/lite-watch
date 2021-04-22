@@ -24,10 +24,20 @@ class VideoIndex extends React.Component {
     }
   }
 
+  shuffle(videos) {
+    for (let i = videos.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [videos[i], videos[j]] = [videos[j], videos[i]];
+    }
+    return videos;
+  }
+
   render() {
+    const shuffledVideos = this.shuffle(this.props.videos);
+
     return (
       <ul className="thumbnails">
-        {this.props.videos.map( (video, idx) => <VideoIndexItem key={idx} video={video}/> )}
+        { shuffledVideos.map( (video, idx) => <VideoIndexItem key={idx} video={video}/> ) }
       </ul>
     );
   }
