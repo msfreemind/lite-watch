@@ -82,7 +82,7 @@ class VideoShow extends React.Component {
       return (
         <div className="video-container">
           <div className="real-video-container">
-            <video onPlay={this.sendPlay} controls poster={video.thumbnailUrl} width="960" height="540">
+            <video onPlay={this.sendPlay} controls controlsList="nodownload" poster={video.thumbnailUrl} width="960" height="540">
               <source src={video.videoUrl} type="video/mp4"/>
               Sorry, your browser doesn't support embedded videos.
             </video>
