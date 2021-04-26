@@ -2,6 +2,9 @@
 
 [LiteWatch](https://www.lite.watch "LiteWatch") is a platform for sharing and reacting to videos.
 
+[logo]: https://github.com/msfreemind/lite-watch/blob/main/app/assets/images/lw-readme-logo.png "LiteWatch"
+![alt text][logo]
+
 ## Table of Contents
 * [Technologies Used](#technologies-used)
 * [Video Uploading / Custom Thumbnails](#video-uploading--custom-thumbnails)
@@ -9,7 +12,7 @@
 
 ## Technologies Used
 
-LiteWatch features HTML5 video playback. The frontend is written within a React/Redux framework to allow for fast site navigation, while the backend is Ruby on Rails on top of a PostgreSQL database. The Rails server responds to AJAX requests with JSON that is built using the Jbuilder gem.
+LiteWatch features HTML5 video playback. The frontend is written within a React/Redux framework to allow for fast site navigation; the backend is Ruby on Rails on top of PostgreSQL. The Rails server responds to AJAX requests with JSON that is built using the Jbuilder gem.
 
 ## Video Uploading / Custom Thumbnails
 
