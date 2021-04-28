@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import firstImage from 'just-watch.png'
+import secondImage from 'main-page.png'
 
 const Splash = () => {
   return (
@@ -11,11 +13,11 @@ const Splash = () => {
           <button className="enter-button"><Link to="/feed">ENTER</Link></button>
         </div>
 
-        <img className="splash-main-img" src="./assets/just-watch.png" alt="" />
+        <img className="splash-main-img" src={firstImage} alt="" />
       </div>
 
       <div className="splash second-splash">
-        <img className="splash-main-img" src="./assets/main-page.png" alt="" />
+        <img className="splash-main-img" src={secondImage} alt="" />
 
         <div className="splash-heading">
           <h1>Minimalist Interface</h1>
