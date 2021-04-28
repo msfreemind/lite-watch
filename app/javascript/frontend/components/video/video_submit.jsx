@@ -58,7 +58,7 @@ class VideoForm extends React.Component {
         formData.append('video[thumbnail]', blob)
 
         this.props.createVideo(formData).then(
-          () => this.props.history.push("/")
+          () => this.props.history.push("/feed")
         ); 
       });  
     } else {

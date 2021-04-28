@@ -56,7 +56,7 @@ class VideoEdit extends React.Component {
     event.preventDefault();
 
     this.props.destroyVideo(this.props.video.id).then(
-      () => this.props.history.push({ pathname: '/' })
+      () => this.props.history.push({ pathname: '/feed' })
     );
   }
   

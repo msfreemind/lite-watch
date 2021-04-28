@@ -10,12 +10,13 @@ import VideoShowContainer from './video/video_show_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util.jsx';
 import FilterFormContainer from './greeting/filter_form_container.js';
 import NotFound from './not_found.jsx'
+import Splash from './splash.jsx';
 
 const App = () => {
   return (
     <div className="page">
       <header className="header">
-        <Link to="/"><h1>LiteWatch</h1></Link>
+        <Link to="/feed"><h1>LiteWatch</h1></Link>
         <FilterFormContainer/>
         <GreetingContainer/>            
       </header>
@@ -26,7 +27,8 @@ const App = () => {
             <AuthRoute path="/login" component={LoginFormContainer}/>
             <AuthRoute path="/signup" component={SignupFormContainer}/>
 
-            <Route exact path="/" component={SearchContainer}/>
+            <Route exact path="/" component={Splash}/>
+            <Route exact path="/feed" component={SearchContainer}/>
           
             <ProtectedRoute path="/videos/new" component={VideoSubmitContainer} />
             <ProtectedRoute path="/videos/edit/:videoId" component={VideoEditContainer} />

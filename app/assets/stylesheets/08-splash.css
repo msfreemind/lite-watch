@@ -1,0 +1,102 @@
+.splash {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.splash-main button {
+  background-color: dodgerblue;
+  font-size: 24px;
+  color: white;
+  border: 1px solid #000;
+  border-radius: 5px;
+  width: max-content;
+  padding: 5px 10px;
+  margin: 0 auto;
+}
+
+.splash-main button:hover {
+  background-color: #000;
+}
+
+.second-splash {
+  padding: 40px;
+}
+
+.splash-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  flex-grow: 1;
+}
+
+.splash-main h1 {
+  font-weight: 700;
+  font-size: 64px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.splash-main h2 {
+  font-size: 32px;
+  font-weight: 400;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.splash img {
+  width: 50%;
+}
+
+.splash-bottom {
+  display: flex;
+  flex-direction: column;
+  padding: 100px;
+}
+
+.splash-bottom h1 {
+  padding-bottom: 20px;
+}
+
+@media all and (max-width: 1240px) {
+  .first-splash {
+    flex-direction: column;
+    padding-bottom: 20px;
+  }
+
+  .second-splash {
+    flex-direction: column-reverse;
+    padding: 20px 0;
+  }
+
+  .splash img {
+    width: 100%;
+  }
+
+  .splash-heading {
+    padding: 0 20px 20px 20px;
+  }
+
+  .splash-bottom {
+    padding: 20px 20px 0 20px;
+  }
+}
+
+@media all and (max-width: 820px) {
+  .splash-main h1 {
+    font-size: 32px;
+  }
+  
+  .splash-main h2 {
+    font-size: 16px;
+  }
+
+  .second-splash h2 {
+    padding-bottom: 0;
+  }
+
+  .splash-main button {
+    font-size: 14px;
+  }
+}

@@ -27,7 +27,7 @@ class FilterForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     
-    this.props.history.push(`/?title=${this.state.title}`);
+    this.props.history.push(`/feed?title=${this.state.title}`);
   }
 
   toggleSearchOverlay() {
