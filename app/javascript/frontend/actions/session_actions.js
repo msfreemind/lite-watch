@@ -38,7 +38,7 @@ export const logout = () => dispatch => {
   return APIUtil.logout().then(
     () => { 
       dispatch(logoutCurrentUser());
-      window.location.reload(); 
+      window.location.reload(); // Reload after logging out so as to clear redux state
     },
     errors => dispatch(receiveErrors(errors.responseJSON))
   );
