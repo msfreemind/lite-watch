@@ -11,6 +11,7 @@ export const receiveReaction = reaction => ({
 
 // async action creators
 
+// Send a like or dislike (or remove a like/dislike) to the backend
 export const createReaction = reaction => dispatch => {
   return APIUtil.postReaction(reaction).then(
     reaction => dispatch(receiveReaction(reaction))
