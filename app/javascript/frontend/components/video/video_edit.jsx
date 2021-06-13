@@ -20,6 +20,7 @@ class VideoEdit extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    // Ensure that a component update with different video ID repopulates all fields
     if (prevProps.match.params.videoId !== this.props.match.params.videoId) {
       this.populateFields();
     }
