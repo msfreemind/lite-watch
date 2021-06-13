@@ -6,6 +6,7 @@ const mapStateToProps = state => ({
   loggedIn: Boolean(state.session.id)
 });
 
+// Define Auth Routes: pages related to authentication, such as login/signup
 const Auth = ({ loggedIn, path, exact, component: Component }) => {
   return (
     <Route 
@@ -18,6 +19,7 @@ const Auth = ({ loggedIn, path, exact, component: Component }) => {
   );
 };
 
+// Defined Protected Routes: pages that should only be accessed by authenticated users
 const Protected = ({ loggedIn, path, exact, component: Component }) => {
   return (
     <Route 
