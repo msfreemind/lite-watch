@@ -5,6 +5,7 @@ class Api::ReactionsController < ApplicationController
       video_id: params[:reaction][:video_id]
     )
 
+    # Likes = true, Dislikes = false, No Reaction = nil
     if params[:reaction][:like] == @reaction.like.to_s
       @reaction.like = nil
     else
