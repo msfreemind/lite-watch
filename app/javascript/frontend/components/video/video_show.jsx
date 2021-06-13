@@ -19,6 +19,7 @@ class VideoShow extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    // Ensure that a component update with different video ID fetches the new video
     if (prevProps.match.params.videoId !== this.props.match.params.videoId) {
       this.props.fetchVideo(this.props.match.params.videoId).then(
         () => this.updateReactionCounts(),
@@ -31,6 +32,7 @@ class VideoShow extends React.Component {
     this.setState({ likes: this.props.video.likes, dislikes: this.props.video.dislikes });
   }
 
+  // Ensures that backend and frontend state (re: reaction counts) remains synchronized and correct
   toggleReaction(likeValue, event) {
     if (this.props.currentUser) {
       const { currentUser, video, createReaction, reaction } = this.props;
