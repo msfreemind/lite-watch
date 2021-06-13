@@ -54,6 +54,7 @@ class VideoForm extends React.Component {
       formData.append('video[author_id]', this.props.currentUser.id);
       formData.append('video[video_data]', this.state.videoFile); 
 
+      // Convert Canvas to blob object and send form data to backend
       canvas.toBlob(blob => {
         formData.append('video[thumbnail]', blob)
 
@@ -74,6 +75,7 @@ class VideoForm extends React.Component {
     }    
   }
 
+  // Creates a hidden Canvas element, from the current video frame, for use as the thumbnail image
   updateCanvas() {
     const video = document.getElementById("video");
     const canvas = document.getElementById("prevImgCanvas");
