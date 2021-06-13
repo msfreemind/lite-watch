@@ -1,5 +1,6 @@
 class Api::VideosController < ApplicationController
   def index
+    # Filter for videos that contain search query text
     title = params[:title] ? params[:title] : ""
     @videos = Video.where("title ILIKE ?", "%#{title}%").includes(:author)
 
