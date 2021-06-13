@@ -12,6 +12,7 @@ export const changeFilter = (filter, value) => ({
 
 // async action creators
 
+// Retrieve videos from back-end where title matches filter text
 export const updateFilter = (filter, value) => (dispatch, getState) => {
   dispatch(changeFilter(filter, value));
   return fetchVideos(getState().ui.filters)(dispatch);
