@@ -24,6 +24,7 @@ class VideoIndex extends React.Component {
     }
   }
 
+  // Ensure videos on homepage appear in random order
   shuffle(videos) {
     for (let i = videos.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
